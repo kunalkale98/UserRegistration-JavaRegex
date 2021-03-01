@@ -42,11 +42,25 @@ public class UserRegistration {
       }
    }
 
+	 public static void phoneNo(Scanner sc) {
+      System.out.print("Phone No: ");
+      String checkPhoneNo = sc.nextLine();
+      boolean pn = Pattern.compile("^[0-9]{1,3} [0-9]{10}$").matcher(checkPhoneNo).matches();
+      if(pn == true) {
+         String phoneNo = checkPhoneNo;
+         System.out.println("Phone No is "+phoneNo);
+      }
+      else {
+         System.out.println("Invalid Phone No");
+      }
+   }
+
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
 		firstName(sc);
 		lastName(sc);
 		email(sc);
+		phoneNo(sc);
 	}
 }
 
