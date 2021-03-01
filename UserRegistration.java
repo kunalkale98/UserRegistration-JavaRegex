@@ -58,7 +58,7 @@ public class UserRegistration {
 	 public static void password(Scanner sc) {
       System.out.print("Password: ");
       String checkPass = sc.nextLine();
-      boolean pass = Pattern.compile("[a-zA-Z]{8,}").matcher(checkPass).matches();
+      boolean pass = Pattern.compile("(?=.*[A-Z])[a-zA-Z]{8,}").matcher(checkPass).matches();
       if(pass == true) {
          String password = checkPass;
          System.out.println("Password is "+password);
