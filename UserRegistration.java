@@ -32,7 +32,7 @@ public class UserRegistration {
 	 public static void email(Scanner sc) {
       System.out.print("Email: ");
       String checkEmail = sc.nextLine();
-      boolean eml = Pattern.compile("^abc.[a-z]{3,}@bl.co.[a-z]{2,3}$").matcher(checkEmail).matches();
+      boolean eml = Pattern.compile("^abc.[a-z]{1,}@bl.co.[a-z]{2,3}$").matcher(checkEmail).matches();
       if(eml == true) {
          String email = checkEmail;
          System.out.println("Email Address is "+email);
@@ -55,12 +55,26 @@ public class UserRegistration {
       }
    }
 
+	 public static void password(Scanner sc) {
+      System.out.print("Password: ");
+      String checkPass = sc.nextLine();
+      boolean pass = Pattern.compile("[a-zA-Z]{8,}").matcher(checkPass).matches();
+      if(pass == true) {
+         String password = checkPass;
+         System.out.println("Password is "+password);
+      }
+      else {
+         System.out.println("Invalid Password");
+      }
+   }
+
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
 		firstName(sc);
 		lastName(sc);
 		email(sc);
 		phoneNo(sc);
+		password(sc);
 	}
 }
 
