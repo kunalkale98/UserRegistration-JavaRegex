@@ -32,7 +32,7 @@ public class UserRegistration {
 	public static String email(Scanner sc) {
 		System.out.print("Email: ");
 		String email = sc.nextLine();
-		boolean eml = Pattern.compile("^abc.[a-z]{1,}@bl.co.[a-z]{2,3}$").matcher(email).matches();
+		boolean eml = Pattern.compile("^[a-zA-Z]+[+_.-]{0,1}+[0-9A-Za-z]{0,3}+@[a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$").matcher(email).matches();
 		if(eml == true) {
 			return email;
 		}
@@ -58,7 +58,7 @@ public class UserRegistration {
 	public static String password(Scanner sc) {
 		System.out.print("Password: ");
 		String password = sc.nextLine();
-		boolean pass = Pattern.compile("(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*?.,])[a-zA-Z0-9!@#$%^&*?.,]{8,}").matcher(password).matches();
+		boolean pass = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}$").matcher(password).matches();
 		if(pass == true) {
 			return password;
 		}
