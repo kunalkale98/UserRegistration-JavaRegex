@@ -24,12 +24,8 @@ public class PassValidation_IfTrue {
     @Test
     public void password_Validation_AsPerTheGiven_Input() {
         UserRegistration validation = new UserRegistration();
-        String pass = null;
-        try {
-            pass = validation.passWord(this.passTest);
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Valid",e.getMessage());
-        }
+        boolean pass = validation.passWord(this.passTest);
+        Assert.assertTrue(pass);
     }
 }
 

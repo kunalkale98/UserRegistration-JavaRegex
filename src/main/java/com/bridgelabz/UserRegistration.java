@@ -10,59 +10,39 @@ public class UserRegistration {
     private static final String Email_Pattern = "^[a-zA-Z]+[+_.-]{0,1}+[0-9A-Za-z]{0,3}+@[a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
     private static final String Password_Pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}$";
 
-    public String firstName(String fName) throws InvalidInput {
+    public boolean firstName(String fName) {
         Pattern P = Pattern.compile(Name_Pattern);
         Matcher M = P.matcher(fName);
-        Boolean fn = M.matches();
-        if (fn == true) {
-            return "Valid";
-        } else {
-            throw new InvalidInput("Invalid");
-        }
+        Boolean fn= M.matches();
+        return fn;
     }
 
-    public String lastName(String lName) throws InvalidInput {
+    public boolean lastName(String lName) {
         Pattern P = Pattern.compile(Name_Pattern);
         Matcher M = P.matcher(lName);
         Boolean ln = M.matches();
-        if(ln == true) {
-            return "Valid";
-        }else{
-            throw new InvalidInput("Invalid");
-        }
+        return ln;
     }
 
-    public String phoneNo(String phoneNo) throws InvalidInput {
+    public boolean phoneNo(String phoneNo) {
         Pattern P = Pattern.compile(Phone_No_Pattern);
         Matcher M = P.matcher(phoneNo);
         Boolean ph = M.matches();
-        if(ph == true) {
-            return "Valid";
-        }else{
-            throw new InvalidInput("Invalid");
-        }
+        return ph;
     }
 
-    public String email(String emailTest) throws InvalidInput {
+    public boolean email(String emailTest) {
         Pattern P = Pattern.compile(Email_Pattern);
         Matcher M = P.matcher(emailTest);
         Boolean eml = M.matches();
-        if(eml == true) {
-            return "Valid";
-        }else{
-            throw new InvalidInput("Invalid");
-        }
+        return eml;
     }
 
-    public String passWord(String passTest) throws InvalidInput {
+    public boolean passWord(String passTest) {
         Pattern P = Pattern.compile(Password_Pattern);
         Matcher M = P.matcher(passTest);
         Boolean pass = M.matches();
-        if(pass == true) {
-            return "Valid";
-        }else{
-            throw new InvalidInput("Invalid");
-        }
+        return pass;
     }
 }
 

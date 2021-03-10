@@ -22,15 +22,10 @@ public class PassValidation_IfFalse {
     }
 
     @Test
-    public void password_Validation_AsPerTheGiven_Input()  {
+    public void password_Validation_AsPerTheGiven_Input() {
         UserRegistration validation = new UserRegistration();
-        String pass = null;
-        try {
-            pass = validation.passWord(this.passTest);
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Invalid",e.getMessage());
-
-        }
+        boolean pass = validation.passWord(this.passTest);
+        Assert.assertFalse(pass);
     }
 }
 

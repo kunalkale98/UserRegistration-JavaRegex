@@ -7,67 +7,44 @@ public class UserRegistrationTest {
     @Test
     public void firstName_WhenProper_ReturnTrue() {
         UserRegistration validate = new UserRegistration();
-        String fn = null;
-        try {
-            fn = validate.firstName("Kunal");
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Valid",e.getMessage());
-        }
+        boolean fn = validate.firstName("Kunal");
+        Assert.assertTrue(fn);
     }
 
     @Test
     public void firstName_WhenNotProper_ReturnTrue() {
         UserRegistration validate = new UserRegistration();
-        String fn = null;
-        try {
-            fn = validate.firstName("Kk");
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Invalid",e.getMessage());
-        }
+        boolean fn = validate.firstName("Kk");
+        Assert.assertFalse(fn);
     }
 
     @Test
     public void lastName_WhenProper_ReturnTrue() {
         UserRegistration validate = new UserRegistration();
-        String ln = null;
-        try {
-            ln = validate.lastName("Kale");
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Valid",e.getMessage());
-        }
+        boolean ln = validate.lastName("Kale");
+        Assert.assertTrue(ln);
     }
 
     @Test
     public void lastName_WhenNotProper_ReturnTrue() {
         UserRegistration validate = new UserRegistration();
-        String ln = null;
-        try {
-            ln = validate.lastName("Ka");
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Invalid",e.getMessage());
-        }
+        boolean ln = validate.lastName("Ka");
+        Assert.assertFalse(ln);
     }
 
     @Test
     public void phoneNo_WhenProper_ReturnTrue() {
         UserRegistration validate = new UserRegistration();
-        String ph = null;
-        try {
-            ph = validate.phoneNo("91 1234567890");
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Valid",e.getMessage());
-        }
+        boolean ph = validate.phoneNo("91 1234567890");
+        Assert.assertTrue(ph);
     }
 
     @Test
     public void phoneNo_WhenNotProper_ReturnTrue() {
         UserRegistration validate = new UserRegistration();
-        String ph = null;
-        try {
-            ph = validate.phoneNo("91 12345678");
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Invalid",e.getMessage());
-        }
+        boolean ph = validate.phoneNo("91 12345678");
+        Assert.assertFalse(ph);
     }
+
 }
 

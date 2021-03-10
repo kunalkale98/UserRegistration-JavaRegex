@@ -26,12 +26,8 @@ public class FalseUserEmail {
     @Test
     public void email_Validation_WhenGiven_Improper_Email() {
         UserRegistration validation = new UserRegistration();
-        String eml = null;
-        try {
-            eml = validation.email(this.emailTest);
-        } catch (InvalidInput e) {
-            Assert.assertEquals("Invalid",e.getMessage());
-        }
+        boolean eml = validation.email(this.emailTest);
+        Assert.assertFalse(eml);
     }
 }
 
