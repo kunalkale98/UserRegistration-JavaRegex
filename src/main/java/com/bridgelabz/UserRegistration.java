@@ -1,7 +1,10 @@
 package com.bridgelabz;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+interface IValid{
+    String isValid(String input) throws InvalidInput;
+}
 
 public class UserRegistration {
 
@@ -10,39 +13,34 @@ public class UserRegistration {
     private static final String Email_Pattern = "^[a-zA-Z]+[+_.-]{0,1}+[0-9A-Za-z]{0,3}+@[a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
     private static final String Password_Pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}$";
 
-    public boolean firstName(String fName) {
-        Pattern P = Pattern.compile(Name_Pattern);
-        Matcher M = P.matcher(fName);
-        Boolean fn= M.matches();
-        return fn;
-    }
+    IValid firstName = fName -> {
+        boolean fn = Pattern.matches(Name_Pattern, fName);
+        if(fn==true) {return "Valid";}
+        else{throw new InvalidInput("Invalid");}
+    };
 
-    public boolean lastName(String lName) {
-        Pattern P = Pattern.compile(Name_Pattern);
-        Matcher M = P.matcher(lName);
-        Boolean ln = M.matches();
-        return ln;
-    }
+    IValid lastName = lName -> {
+        boolean ln = Pattern.matches(Name_Pattern,lName);
+        if(ln == true) { return "Valid"; }
+        else{throw new InvalidInput("Invalid");}
+    };
 
-    public boolean phoneNo(String phoneNo) {
-        Pattern P = Pattern.compile(Phone_No_Pattern);
-        Matcher M = P.matcher(phoneNo);
-        Boolean ph = M.matches();
-        return ph;
-    }
+    IValid phoneNo = phoneNo -> {
+        boolean ph = Pattern.matches(Phone_No_Pattern,phoneNo);
+        if(ph == true) { return "Valid"; }
+        else{ throw new InvalidInput("Invalid"); }
+    };
 
-    public boolean email(String emailTest) {
-        Pattern P = Pattern.compile(Email_Pattern);
-        Matcher M = P.matcher(emailTest);
-        Boolean eml = M.matches();
-        return eml;
-    }
+    IValid email = emailTest -> {
+        boolean eml = Pattern.matches(Email_Pattern,emailTest);
+        if(eml == true) { return "Valid"; }
+        else{ throw new InvalidInput("Invalid"); }
+    };
 
-    public boolean passWord(String passTest) {
-        Pattern P = Pattern.compile(Password_Pattern);
-        Matcher M = P.matcher(passTest);
-        Boolean pass = M.matches();
-        return pass;
-    }
+    IValid passWord = passTest -> {
+        boolean pass = Pattern.matches(Password_Pattern,passTest);
+        if(pass == true) { return "Valid"; }
+        else{ throw new InvalidInput("Invalid"); }
+    };
 }
 
