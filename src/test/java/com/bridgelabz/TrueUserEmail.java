@@ -25,8 +25,12 @@ public class TrueUserEmail {
     @Test
     public void email_Validation_WhenGiven_Proper_Email() {
         UserRegistration validation = new UserRegistration();
-        boolean eml = validation.email(this.emailTest);
-        Assert.assertTrue(eml);
+        String eml = null;
+        try {
+            eml = validation.email(this.emailTest);
+        } catch (InvalidInput e) {
+            Assert.assertEquals("Valid",e.getMessage());
+        }
     }
 }
 
